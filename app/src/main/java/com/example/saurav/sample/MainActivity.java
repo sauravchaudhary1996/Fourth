@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
         madview=(AdView)findViewById(R.id.adView);
-        AdRequest adrequest=new AdRequest.Builder().addTestDevice("6B3B6500F30BB25CBE3CD43158A28D43").build();
+        AdRequest adrequest=new AdRequest.Builder().addTestDevice("AdRequest.DEVICE_ID_EMULATOR").build();
         madview.loadAd(adrequest);
         mAuth = FirebaseAuth.getInstance();
         btnLogin = (Button) findViewById(R.id.login);
@@ -41,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,PasswordActivity.class));
+            }
+        });
+
+
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
 
                                     Toast.makeText(MainActivity.this, "Login success", Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(MainActivity.this, Check.class);
+                                    Intent intent = new Intent(MainActivity.this, Listview.class);
                                     startActivity(intent);
                                    // finish();
                                 }
