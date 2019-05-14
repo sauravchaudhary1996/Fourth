@@ -1,0 +1,11 @@
+<header class="d-md-flex align-items-center flex-row justify-content-between page-header">
+  <div class="col-lg-8 col-md-8 col-sm-12">
+    <img alt="Logo" src="./assets/images/Tricon-logo-white.png" class="page-logo" />
+  </div>
+  {{isLoggedIn}}
+  <div class="col-lg-4 col-md-4 col-sm-12 text-right user-profile" *ngIf="getUserInfo">
+    <span>Hello</span>,
+    <span class="text-uppercase" id="userName" > {{ getUserInfo.fname }}&nbsp;{{ getUserInfo.lname }} </span><br>
+    <a href="javascript:;" class="sign-out" (click)="logOut($event)">Logout</a>
+  </div>
+</header>
